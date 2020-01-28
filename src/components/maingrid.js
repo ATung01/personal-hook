@@ -10,8 +10,8 @@ const Main = styled.div`
 display: grid;
 grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
 grid-auto-rows: 80px;
-column-gap: 5px;
-row-gap: 5px;
+${'' /* column-gap: 5px; */}
+${'' /* row-gap: 5px; */}
 grid-auto-flow: dense;
 `
 
@@ -36,6 +36,8 @@ function maingrid() {
         <Square2x2></Square2x2>
         <FlatLine></FlatLine>
         <Square2x2></Square2x2>
+        <Square2x2></Square2x2>
+
 
         </Main>
     )    
