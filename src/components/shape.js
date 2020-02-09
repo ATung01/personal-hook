@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 
 const ShapedLayout = styled.div`
@@ -14,7 +14,6 @@ function Shape(props) {
     const changeColor = (e) => {
         setColor('white')
     }
-    console.log(color)
 
 
     return (
