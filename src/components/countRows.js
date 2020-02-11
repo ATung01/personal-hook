@@ -11,11 +11,14 @@ function CountRows(props) {
     let numRows = () => {
         return window.getComputedStyle(props.gridComputedStyles.current).getPropertyValue('grid-template-rows').split(" ").length
     }
+    if (props.oldNumRows === undefined) {
+        props.setOldNumRows(numRows)
+    }
     useEffect(() => {
         setRowCount(numRows)
-        console.log(window.getComputedStyle(props.gridComputedStyles.current).getPropertyValue('grid-template-rows').split(" ").length)
+        props.setNumRows(rowCount)
+        console.log("num rows =", rowCount)
     }, [rowCount])
-
     return(
         <Counter rowCount = {rowCount}></Counter>
     )
