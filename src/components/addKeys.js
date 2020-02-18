@@ -1,10 +1,10 @@
 import React from 'react'
 
-function addKeys(layout) {
-    let newLayout = layout.map( (shape, key) => {
-        return React.cloneElement(shape, {key})
-    })
-    return newLayout
+function addKeys(layouts) {
+  let newLayouts = layouts.map((shape, key) => {
+    return React.cloneElement(shape, { key })
+  })
+  return newLayouts
 }
 
 export default addKeys
