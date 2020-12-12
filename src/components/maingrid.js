@@ -13,8 +13,7 @@ grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
 grid-auto-columns: minmax(80px, 1fr);
 grid-auto-rows: minmax(80px, 1fr);
 grid-auto-flow: dense;
-border-top: 3px solid black;
-border-left: 3px solid black;
+border: 1px solid black;
 background-color: black;
 `
 
@@ -55,7 +54,7 @@ function Maingrid() {
         oldNumRows={oldNumRows}
         setOldNumRows={setOldNumRows}>
       </CountRows>
-      {console.info({ layout, numRows, oldNumRows, gridRef })}
+      {/* {console.info({ layout, numRows, oldNumRows, gridRef })} */}
       <FillEmptySpace
         numRows={numRows}
         oldNumRows={oldNumRows}

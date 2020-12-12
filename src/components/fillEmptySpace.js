@@ -7,8 +7,6 @@ let DummyShape = styled(Shape)`
 grid-row-end: 'span 2';
 grid-column-end: 'span 2';
 background-color: 'white';
-border-right: 3px solid black;
-border-bottom: 3px solid black;
 `
 
 

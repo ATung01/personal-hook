@@ -10,8 +10,7 @@ height: 100%;
 `
 const BackgroundShape = styled(Shape)`
 background-color: black;
-border: 0px;
-border-right: 3px solid black;
+border-bottom: 0px;
 overflow: hidden;
 `
 

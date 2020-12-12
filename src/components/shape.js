@@ -6,8 +6,7 @@ grid-row-end: ${props => props.row || 'span 2'};
 grid-column-end: ${props => props.column || 'span 2'};
 background-color: ${props => props.newBGColor ? props.newBGColor 
                     : props.bgColor ? props.bgColor : 'white'};
-border-right: 3px solid black;
-border-bottom: 3px solid black;
+border: 2px solid black;
 `
 
 function Shape(props) {

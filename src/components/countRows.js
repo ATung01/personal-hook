@@ -16,6 +16,7 @@ function CountRows(props) {
     console.log("old numbers being set")
     props.setOldNumRows(numRows)
   }
+
   useEffect(() => {
     setRowCount(numRows)
     props.setNumRows(rowCount)
