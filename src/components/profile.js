@@ -4,11 +4,14 @@ import Shape from './shape'
 import Headshot from './images/headshot.jpg'
 
 const ProfileArea = styled.img`
-max-height: 100%;
-min-width: 100%;
+object-fit: cover;
+width: 100%;
+height: 100%;
 `
 const BackgroundShape = styled(Shape)`
-background-color: white;
+background-color: black;
+border: 0px;
+border-right: 3px solid black;
 overflow: hidden;
 `
 

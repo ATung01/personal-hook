@@ -11,7 +11,7 @@ box-sizing: border-box;
 display: grid;
 grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
 grid-auto-columns: minmax(80px, 1fr);
-grid-auto-rows: minmax(80px, auto);
+grid-auto-rows: minmax(80px, 1fr);
 grid-auto-flow: dense;
 border-top: 3px solid black;
 border-left: 3px solid black;
