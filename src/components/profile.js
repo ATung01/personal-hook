@@ -14,8 +14,7 @@ border-bottom: 0px;
 overflow: hidden;
 `
 
-function Profile(props) {
-    
+function Profile(props) {    
     return(
         <BackgroundShape {...props}>
             <ProfileArea src={Headshot}></ProfileArea>

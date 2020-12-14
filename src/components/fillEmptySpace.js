@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Shape from './shape'
 import addKeys from './addKeys'
 import styled from 'styled-components'
@@ -11,7 +11,7 @@ background-color: 'white';
 
 
 
-function FillEmptySpace({ numRows, oldNumRows, layout, setLayout }) {
+function FillEmptySpace({ numRows, layout, setLayout }) {
   let newLayout = layout
   const newShape = <DummyShape key={newLayout.length} />
   // newLayout.push(newShape)
@@ -20,7 +20,7 @@ function FillEmptySpace({ numRows, oldNumRows, layout, setLayout }) {
   //     console.log(oldNumRows)
   //     setLayout(newLayout)
   // })
-  if (layout.length < 20) {
+  if (layout.length < 40) {
     setLayout([...layout, newShape])
   }
 
