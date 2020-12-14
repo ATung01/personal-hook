@@ -39,8 +39,7 @@ function Maingrid() {
   const [numRows, setNumRows] = useState()
   const [numColumns, setNumColumns] = useState()
   const gridRef = useRef(null)
-  useEffect(() => {
-    console.log("use effect")
+  let gridCount = () => {
     CountGridSize({
       gridComputedStyles:gridRef,
       setNumRows:setNumRows,
@@ -48,6 +47,10 @@ function Maingrid() {
       setNumColumns:setNumColumns,
       numColumns:numColumns
     })
+  }
+  useEffect(() => {
+    console.log("Useeffect initial hit")
+    window.addEventListener("resize", gridCount)
   })
 
 
