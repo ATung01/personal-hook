@@ -22,22 +22,20 @@ const Square4x4 = { row: "span 4", column: "span 4", bgColor: "green" }
 const Square8x8 = { row: "span 8", column: "span 8", bgColor: "yellow" }
 const VertLine = { row: "span 8", column: "span 2", bgColor: "blue" }
 
-const layoutList = [
-  <Shape {...Square2x2} />,
-  <Shape {...Square4x4} />,
-  <Profile {...Square8x8} />,
-  <Shape {...Square2x2} />,
-  <Shape {...VertLine} />,
-  <Shape {...Square4x4} />,
-  <Shape {...Square2x2} />
-]
-
-let initialLayout = AddKeys(layoutList)
-
 function Maingrid() {
-  const [layout, setLayout] = useState(initialLayout)
-  const [numRows, setNumRows] = useState()
-  const [numColumns, setNumColumns] = useState()
+  const [numRows, setNumRows] = useState(10)
+  const [numColumns, setNumColumns] = useState(10)
+
+  const layoutList = [
+    <Shape {...Square2x2} />,
+    <Shape {...Square4x4} />,
+    <Profile {...Square8x8} numColumns={numColumns} />,
+    <Shape {...Square2x2} />,
+    <Shape {...VertLine} />,
+    <Shape {...Square4x4} />,
+    <Shape {...Square2x2} />
+  ]
+
   const gridRef = useRef(null)
   let gridCount = () => {
     CountGridSize({
@@ -49,15 +47,15 @@ function Maingrid() {
     })
   }
   useEffect(() => {
+    gridCount()
     console.log("Useeffect initial hit")
+    console.log("numColumns = ", numColumns)
     window.addEventListener("resize", gridCount)
   })
 
-
-
   return (
     <Main ref={gridRef}>
-      {layout}
+      {layoutList}
       {/* <FillEmptySpace
         numRows={numRows}
         // oldNumRows={oldNumRows}

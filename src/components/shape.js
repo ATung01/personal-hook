@@ -8,13 +8,11 @@ background-color: ${props => props.newBGColor ? props.newBGColor
                     : props.bgColor ? props.bgColor : 'white'};
 border: 2px solid black;
 `
-
 function Shape(props) {
     const [color, setColor] = useState(null)
     const changeColor = (e) => {
         setColor('white')
     }
-
 
     return (
         <ShapedLayout 

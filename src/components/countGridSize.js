@@ -8,9 +8,9 @@ function CountGridSize(props) {
 
     props.setNumRows(numRows)
     props.setNumColumns(numColumns)
-
-    console.log("num rows =", props.numRows)
-    console.log("num columns =", props.numColumns)
+    // console.log("props", props)
+    // console.log("num rows =", props.numRows)
+    // console.log("num columns =", props.numColumns)
 
 }
 
