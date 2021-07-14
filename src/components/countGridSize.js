@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+// import { useState, useEffect } from 'react'
 
 function CountGridSize(props) {
 
@@ -8,9 +8,7 @@ function CountGridSize(props) {
 
     props.setNumRows(numRows)
     props.setNumColumns(numColumns)
-    // console.log("props", props)
-    // console.log("num rows =", props.numRows)
-    // console.log("num columns =", props.numColumns)
+
 
 }
 
