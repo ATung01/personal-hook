@@ -9,24 +9,23 @@ grid-column-end: 'span 2';
 background-color: 'white';
 `
 
-
-
-function FillEmptySpace({ numRows, layout, fill, setFill}) {
-  let newLayout = layout
-  const NewShape = <DummyShape/>
-  // setFill([NewShape, NewShape, NewShape])
-  // newLayout.push(newShape)
-  // addKeys(newLayout)
-  // useEffect( () => {
-  //     console.log(oldNumRows)
-  //     setLayout(newLayout)
-  // })
-  // if (layout.length < 40) {
-  //   setLayout([...layout, newShape])
-  // }
-
-
-  return null
+function FillEmptySpace({ numRows, numColumns, layout, setFill}) {
+  let newLayout = []
+  let NewShape = <DummyShape/>
+  const LayoutArea = numColumns * numRows
+  let remainingSpace = LayoutArea
+  
+  newLayout.push(NewShape, NewShape)
+  newLayout = addKeys(newLayout)
+  setFill(newLayout)
+  layout.forEach(el => {
+    let col = JSON.stringify(el.props.column).match(/[0-9]/g).join("")
+    let row = JSON.stringify(el.props.row).match(/[0-9]/g).join("")
+    // hoops jumped through due to Footer having a dynamic size instead of being initialized
+    let section = col * row
+    console.log(section)
+    console.log(LayoutArea)
+  });
 }
 
 export default FillEmptySpace

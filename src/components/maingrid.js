@@ -1,10 +1,9 @@
-import React, { useState, useRef, useEffect, useLayoutEffect } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import styled from 'styled-components'
 import Shape from './shape'
 import Profile from './profile'
 import CountGridSize from './countGridSize'
 import FillEmptySpace from './fillEmptySpace'
-import AddKeys from './addKeys'
 import Footer from './footer'
 import addKeys from './addKeys'
 
@@ -24,12 +23,12 @@ const Square2x2 = { row: "span 2", column: "span 2", bgColor: "red" }
 const Square4x4 = { row: "span 4", column: "span 4", bgColor: "green" }
 const Square8x8 = { row: "span 8", column: "span 8", bgColor: "yellow" }
 const VertLine = { row: "span 8", column: "span 2", bgColor: "blue" }
+const FooterSize = { row: "span 2"}
 
 function Maingrid() {
   const [numRows, setNumRows] = useState(10)
   const [numColumns, setNumColumns] = useState(10)
   const [fill, setFill] = useState()
-
   const layoutList = [
     <Shape {...Square2x2} />,
     <Shape {...Square4x4} />,
@@ -38,7 +37,7 @@ function Maingrid() {
     <Shape {...VertLine} />,
     <Shape {...Square4x4} />,
     <Shape {...Square2x2} />,
-    <Footer numRows={numRows} numColumns={numColumns} />
+    <Footer {...FooterSize} column={numColumns} />
   ]
 
   const initialLayout = addKeys(layoutList)
@@ -56,12 +55,12 @@ function Maingrid() {
   useEffect(() => {
     // window.removeEventListener("resize", gridCount)
     gridCount()
-    // FillEmptySpace({
-    //   numRows: numRows,
-    //   fill: fill,
-    //   setFill: setFill,
-    //   layout: initialLayout
-    // })
+    FillEmptySpace({
+      numRows: numRows,
+      numColumns: numColumns,
+      setFill: setFill,
+      layout: initialLayout
+    })
     console.log("Useeffect initial hit")
     console.log("numColumns = ", numColumns)
     window.addEventListener("resize", gridCount)
@@ -76,7 +75,7 @@ function Maingrid() {
         setFill={setFill}
         layout={initialLayout}>
       </FillEmptySpace> */}
-      {/* {fill} */}
+      {fill}
     </Main>
   )
 }

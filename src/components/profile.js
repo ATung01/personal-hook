@@ -8,8 +8,6 @@ object-fit: cover;
 width: 100%;
 height: 100%;
 `
-let numColumns = 20
-
 let BackgroundShape = styled(Shape)`
 background-color: black;
 border-bottom: 0px;
@@ -17,14 +15,13 @@ overflow: hidden;
 grid-column: 1 / ${props => props.numColumns <= 8 ? 'span 4' : 'span 8'};
 grid-row: 5 / ${props => props.numColumns <= 8 ? 'span 4' : 'span 8'};
 `
-
 function Profile(props) {
 
-    return(
-        <BackgroundShape  {...props}>
-            <ProfileArea src={Headshot}></ProfileArea>
-        </BackgroundShape>
-    )
+  return(
+    <BackgroundShape  {...props}>
+      <ProfileArea src={Headshot}></ProfileArea>
+    </BackgroundShape>
+  )
 }
 
 export default Profile
