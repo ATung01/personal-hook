@@ -12,7 +12,7 @@ box-sizing: border-box;
 display: grid;
 grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
 grid-template-rows: repeat(16, minmax(80px, 1fr));
-grid-auto-columns: minmax(80px, 1fr);
+${'' /* grid-auto-columns: minmax(80px, 1fr); */}
 ${'' /* grid-auto-rows: minmax(80px, 1fr); */}
 grid-auto-flow: dense;
 border: 1px solid black;
@@ -36,8 +36,8 @@ function Maingrid() {
     <Shape {...Square2x2} />,
     <Shape {...VertLine} />,
     <Shape {...Square4x4} />,
-    <Shape {...Square2x2} />,
-    <Footer {...FooterSize} column={numColumns} />
+    <Shape {...Square2x2} />
+    // <Footer {...FooterSize} column={numColumns} />
   ]
 
   const initialLayout = addKeys(layoutList)
@@ -55,6 +55,7 @@ function Maingrid() {
   useEffect(() => {
     // window.removeEventListener("resize", gridCount)
     gridCount()
+    console.log("Fill is", fill)
     FillEmptySpace({
       numRows: numRows,
       numColumns: numColumns,
@@ -63,6 +64,7 @@ function Maingrid() {
     })
     console.log("Useeffect initial hit")
     console.log("numColumns = ", numColumns)
+    console.log('numRows = ', numRows)
     window.addEventListener("resize", gridCount)
   }, [numColumns])
 

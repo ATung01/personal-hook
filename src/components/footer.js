@@ -4,7 +4,7 @@ import Shape from './shape'
 
 const FooterCSS = styled(Shape)`
 grid-column: 1 / -1;
-grid-row-start: 15;
+grid-row-start: 20;
 ${'' /* grid-row-end: -1; */}
 `
 function Footer(props) {

@@ -18,7 +18,7 @@ grid-row: 5 / ${props => props.numColumns <= 8 ? 'span 4' : 'span 8'};
 function Profile(props) {
 
   return(
-    <BackgroundShape  {...props}>
+    <BackgroundShape  {...props} trait={"profile"} >
       <ProfileArea src={Headshot}></ProfileArea>
     </BackgroundShape>
   )

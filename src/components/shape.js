@@ -15,7 +15,8 @@ function Shape(props) {
     setColor('white')}
   return (
     <ShapedLayout 
-      {...props} 
+      {...props}
+      className={props.className} 
       newBGColor={color}
       onClick={changeColor}>    
     </ShapedLayout>
