@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useLayoutEffect } from 'react'
 import styled from 'styled-components'
 import Shape from './shape'
 import Profile from './profile'
@@ -26,13 +26,14 @@ const VertLine = { row: "span 8", column: "span 2", bgColor: "blue" }
 const FooterSize = { row: "span 2"}
 
 function Maingrid() {
-  const [numRows, setNumRows] = useState(10)
-  const [numColumns, setNumColumns] = useState(10)
+  const [numRows, setNumRows] = useState()
+  const [numColumns, setNumColumns] = useState()
   const [fill, setFill] = useState()
+  const [profileSize, setProfileSize] = useState()
   const layoutList = [
     <Shape {...Square2x2} />,
     <Shape {...Square4x4} />,
-    <Profile {...Square8x8} numColumns={numColumns} />,
+    <Profile {...Square8x8} numColumns={numColumns} className="profile" />,
     <Shape {...Square2x2} />,
     <Shape {...VertLine} />,
     <Shape {...Square4x4} />,
@@ -41,35 +42,41 @@ function Maingrid() {
   ]
 
   const initialLayout = addKeys(layoutList)
-
   const gridRef = useRef(null)
-  let gridCount = () => {
-    CountGridSize({
-      gridComputedStyles: gridRef,
-      setNumRows: setNumRows,
-      numRows: numRows,
-      setNumColumns: setNumColumns,
-      numColumns: numColumns
-    })
-  }
-  useEffect(() => {
-    // window.removeEventListener("resize", gridCount)
-    gridCount()
-    console.log("Fill is", fill)
+
+  let fillSpace = () => {
     FillEmptySpace({
       numRows: numRows,
       numColumns: numColumns,
       setFill: setFill,
       layout: initialLayout
     })
+  }
+  let gridCount = () => {
+    CountGridSize({
+      gridComputedStyles: gridRef,
+      setNumRows: setNumRows,
+      numRows: numRows,
+      setNumColumns: setNumColumns,
+      numColumns: numColumns,
+      setFill: setFill,
+      fillSpace: fillSpace
+    })
+  }
+  useLayoutEffect(() => {
+    gridCount()
+    fillSpace()
     console.log("Useeffect initial hit")
     console.log("numColumns = ", numColumns)
     console.log('numRows = ', numRows)
     window.addEventListener("resize", gridCount)
+    return () => {
+     window.removeEventListener("resize", gridCount)
+    }
   }, [numColumns])
 
   return (
-    <Main ref={gridRef}>
+    <Main ref={gridRef} className="Main">
       {initialLayout}
       {/* <FillEmptySpace
         numRows={numRows}
