@@ -8,7 +8,7 @@ const smallBlock = {row: "span 2", column: "span 2", bgColor: "white", className
 
 function FillEmptySpace({ numRows, numColumns, layout, setFill, profileSize}) {
   let newLayout = []
-  console.log("newLayout =", newLayout)
+  console.log("newLayout before =", newLayout)
   let NewShape = <Shape {...smallBlock}/>
   const LayoutArea = numColumns * numRows
   console.log("LayoutArea =", LayoutArea, "numRows =", numRows, "numColumns =", numColumns)
@@ -23,12 +23,14 @@ function FillEmptySpace({ numRows, numColumns, layout, setFill, profileSize}) {
     // remainingSpace -= (col * row)
   })
   while (remainingSpace >= 4) {
+    // console.log("remainingSpace = ", remainingSpace)
     newLayout.push(NewShape)
     remainingSpace -= 4
+    // console.log("newLayout during =", newLayout)
   }
   // newLayout.push(NewShape, NewShape)
   newLayout = addKeys(newLayout)
-  console.log("newLayout after", newLayout)
+  console.log("newLayout after =", newLayout)
   setFill(newLayout)
   
 }

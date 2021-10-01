@@ -6,6 +6,7 @@ import CountGridSize from './countGridSize'
 import FillEmptySpace from './fillEmptySpace'
 import Footer from './footer'
 import addKeys from './addKeys'
+import { debounce } from 'lodash'
 
 const Main = styled.div`
 box-sizing: border-box;
@@ -52,7 +53,18 @@ function Maingrid() {
       layout: initialLayout
     })
   }
-  let gridCount = () => {
+  // let gridCount = () => {
+  //   CountGridSize({
+  //     gridComputedStyles: gridRef,
+  //     setNumRows: setNumRows,
+  //     numRows: numRows,
+  //     setNumColumns: setNumColumns,
+  //     numColumns: numColumns,
+  //     setFill: setFill,
+  //     fillSpace: fillSpace
+  //   })
+  // }
+  let gridCount = debounce(() => {
     CountGridSize({
       gridComputedStyles: gridRef,
       setNumRows: setNumRows,
@@ -62,16 +74,16 @@ function Maingrid() {
       setFill: setFill,
       fillSpace: fillSpace
     })
-  }
+  }, 100)
   useLayoutEffect(() => {
     gridCount()
     fillSpace()
     console.log("Useeffect initial hit")
     console.log("numColumns = ", numColumns)
     console.log('numRows = ', numRows)
-    window.addEventListener("resize", gridCount)
+    window.addEventListener("resize", gridCount, {passive: true})
     return () => {
-     window.removeEventListener("resize", gridCount)
+     window.removeEventListener("resize", gridCount, {passive: true})
     }
   }, [numColumns])
 

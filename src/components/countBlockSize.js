@@ -8,6 +8,7 @@ function countBlockSize(el) {
   const styles = window.getComputedStyle(document.getElementsByClassName("Main")[0])
 
   if (styles.getPropertyValue("grid-template-columns").split(" ").length <= 9 && el.props.className == "profile") {
+    console.log("profile size small hit")
     return 16
   }
 
