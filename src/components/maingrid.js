@@ -90,12 +90,6 @@ function Maingrid() {
   return (
     <Main ref={gridRef} className="Main">
       {initialLayout}
-      {/* <FillEmptySpace
-        numRows={numRows}
-        fill={fill}
-        setFill={setFill}
-        layout={initialLayout}>
-      </FillEmptySpace> */}
       {fill}
     </Main>
   )

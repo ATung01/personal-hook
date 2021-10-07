@@ -1,10 +1,14 @@
 function countBlockSize(el) {
+
   // let gridDimensions = window.getComputedStyle(gridComputedStyles.current)
   // console.log("grid dimensions =", gridDimensions)
   // console.log("answer =", gridDimensions.getPropertyValue("width"))
 
   // let numRows = gridDimensions.getPropertyValue('grid-template-rows').split(" ").length
   // let numColumns = gridDimensions.getPropertyValue('grid-template-columns').split(" ").length
+  console.log("element ", el)
+
+
   const styles = window.getComputedStyle(document.getElementsByClassName("Main")[0])
 
   if (styles.getPropertyValue("grid-template-columns").split(" ").length <= 9 && el.props.className == "profile") {
