@@ -41,8 +41,10 @@ function Maingrid() {
     <Shape {...Square2x2} />
     // <Footer {...FooterSize} column={numColumns} />
   ]
+  const shapeRef = useRef(null)
 
-  const initialLayout = addKeys(layoutList)
+
+  const initialLayout = addKeys(layoutList, [])
   const gridRef = useRef(null)
 
   let fillSpace = () => {
@@ -50,20 +52,11 @@ function Maingrid() {
       numRows: numRows,
       numColumns: numColumns,
       setFill: setFill,
-      layout: initialLayout
+      layout: initialLayout,
+      shapeRef
     })
   }
-  // let gridCount = () => {
-  //   CountGridSize({
-  //     gridComputedStyles: gridRef,
-  //     setNumRows: setNumRows,
-  //     numRows: numRows,
-  //     setNumColumns: setNumColumns,
-  //     numColumns: numColumns,
-  //     setFill: setFill,
-  //     fillSpace: fillSpace
-  //   })
-  // }
+
   let gridCount = debounce(() => {
     CountGridSize({
       gridComputedStyles: gridRef,

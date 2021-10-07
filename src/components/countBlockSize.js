@@ -1,4 +1,4 @@
-function countBlockSize(el) {
+function countBlockSize(el, shapeRef) {
 
   // let gridDimensions = window.getComputedStyle(gridComputedStyles.current)
   // console.log("grid dimensions =", gridDimensions)
@@ -6,7 +6,7 @@ function countBlockSize(el) {
 
   // let numRows = gridDimensions.getPropertyValue('grid-template-rows').split(" ").length
   // let numColumns = gridDimensions.getPropertyValue('grid-template-columns').split(" ").length
-  console.log("element ", el)
+  console.log("element ", shapeRef)
 
 
   const styles = window.getComputedStyle(document.getElementsByClassName("Main")[0])

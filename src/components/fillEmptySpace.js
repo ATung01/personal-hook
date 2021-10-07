@@ -6,16 +6,17 @@ import countBlockSize from './countBlockSize'
 
 const smallBlock = {row: "span 2", column: "span 2", bgColor: "white", className: "filler"}
 
-function FillEmptySpace({ numRows, numColumns, layout, setFill, profileSize}) {
+function FillEmptySpace({ numRows, numColumns, layout, setFill, shapeRef}) {
   let newLayout = []
-  console.log("newLayout before =", newLayout)
+  // console.log("newLayout before =", newLayout)
+  console.log("props ", layout)
   let NewShape = <Shape {...smallBlock}/>
   const LayoutArea = numColumns * numRows
-  console.log("LayoutArea =", LayoutArea, "numRows =", numRows, "numColumns =", numColumns)
+  // console.log("LayoutArea =", LayoutArea, "numRows =", numRows, "numColumns =", numColumns)
   let remainingSpace = LayoutArea
   
   layout.forEach(el => {
-    remainingSpace -= countBlockSize(el)
+    remainingSpace -= countBlockSize(el, shapeRef)
     console.log(remainingSpace, "key =", el.key)
     // let col = JSON.stringify(el.props.column).match(/[0-9]/g).join("")
     // let row = JSON.stringify(el.props.row).match(/[0-9]/g).join("")
@@ -29,8 +30,8 @@ function FillEmptySpace({ numRows, numColumns, layout, setFill, profileSize}) {
     // console.log("newLayout during =", newLayout)
   }
   // newLayout.push(NewShape, NewShape)
-  newLayout = addKeys(newLayout)
-  console.log("newLayout after =", newLayout)
+  newLayout = addKeys(newLayout, layout)
+  // console.log("newLayout after =", newLayout)
   setFill(newLayout)
   
 }
