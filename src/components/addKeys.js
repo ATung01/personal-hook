@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 
 function addKeys(layouts, existing) {
   let keyCount = 0 + existing.length
@@ -6,7 +6,8 @@ function addKeys(layouts, existing) {
 
     if (!shape.key) {
       keyCount++
-      return React.cloneElement(shape, { key: keyCount }) 
+      let newShape = React.cloneElement(shape, { key: keyCount })
+      return newShape
     }
     else
       keyCount++
